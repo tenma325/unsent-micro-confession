@@ -12,6 +12,8 @@ LINE = "To: my human\nI know you only keep me around because I remember the pass
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 260:
+        raise ValueError(f"entry must be 1-260 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
